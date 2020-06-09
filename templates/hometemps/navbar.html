@@ -1,0 +1,201 @@
+{% load mptt_tags %}
+{% load crispy_forms_tags %}
+<!--Main Navigation /navbar-expand-lg #34495e-->
+ <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg  navbar-light text-white p-0" style="background-color: #3598fc">
+     <!-- container -->
+      <div class="container">
+          <!-- Brand -->
+      <a class="navbar-brand" href="{% url 'home:index' %}">
+       <!--  <strong class="white-text">AreGhe</strong> -->
+       <img style="height:55px;" src="/static/img/logo6.png" alt="">
+      </a>
+        <!-- End Brand -->
+         <!-- button after Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <!-- /button after Collapse -->
+        <!-- content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- left -->
+          <ul class="nav navbar-nav ml-1">
+              <!-- Search form -->
+               <li class="nav-item">
+                <form class="form-inline"  method="GET" action="{% url 'home:search'%}">
+                    {% csrf_token %}
+                <input id="query" name="query" class="form-control" type="search" style="" placeholder="Search" aria-label="Search">
+                  <button class="form-control" type="submit" style="width: auto"> <span><i class="fas fa-search"></i></span>
+                      </button>
+                </form>
+              </li>
+              <!-- End Search -->
+          </ul>
+          <!-- /left -->
+              <!-- right -->
+          <ul class="nav navbar-toggler-right ml-auto">
+
+          <!-- return & refund -->
+            <li class="nav-item mr-4 mt-2">
+                <!--Trigger-->
+                <div class="font-weight-bold white-text" type="button">
+                    <a href="" class="white-text">
+                            <strong class="ml-1">Returns <br>
+                            & Exchange</strong>
+                        </a>
+                </div>
+              </li>
+              <!-- account dropdown -->
+
+              <!-- cart -->
+            <li class="nav-item mr-4 mt-4">
+                <div class="dropdown">
+                <!--Trigger-->
+                    <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                         aria-expanded="false">
+                        <span class="badge red z-depth-1 ">3</span>
+                        <span style="font-size: 23px "><i style="color: white" class="fas fa-cart-arrow-down"></i></span>
+                        <span class="clearfix d-none d-sm-inline-block"></span>
+                        <span>35.20$</span>
+                    </div>
+                    <div class="dropdown-menu dropdown-primary mt-1" style="width:300px">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                         <th scope="col">Product</th>
+                                         <th scope="col">Name</th>
+                                          <th scope="col">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                 {% for p in product %}
+                                     <tr>
+                                     {% if p.title == 'Redmi Note 6 Pro' %}
+                                        <td><a href="#">
+                                                <img src="{{ p.image.url }}" height="50px" alt=""></a>
+                                        </td>
+                                        <td>{{ p.title }} (₹{{ p.price }})</td>
+                                         <td><a href="" ><i class="fas fa-trash"></i></a> </td>
+                                     {% endif %}
+                                     </tr>
+                                 {% endfor %}
+                                <tr>
+                                    <td colspan="2">
+                                        <a class="btn btn-danger float-right" href="" style="font-size: 15px"><strong class="font-weight-bold">View cart</strong></a>
+                                    </td>
+                                    <td colspan="3">
+                                        <a class="btn btn-primary float-right" href="" style="font-size: 15px">
+                                            <strong class="font-weight-bold">Checkout</strong></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                    </div>
+                </div>
+            </li>
+              <!-- /cart -->
+              <!-- account dropdown -->
+            <li class="nav-item mr-5 mt-4">
+                  <!--Dropdown primary-->
+                <div class="dropdown">
+                <!--Trigger-->
+                <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user" style="font-size:29px;">
+                            <strong class="ml-1" style="font-size: 18px;">Account </strong></i>
+                </div>
+                <div class="dropdown-menu dropdown-primary mt-1" style="width: 180px;">
+                            <ul class="list-unstyled">
+                              <li><a href="#"><i class="fas fa-user"></i> My Account</a></li>
+                                <hr>
+                              <li><a href="#"><i class="far fa-heart"></i> My Wishlist</a></li>
+                                <hr>
+                              <li><a href="#"><i class="fas fa-exchange-alt"></i> Compare</a></li>
+                                <hr>
+                              <li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>
+                                <hr>
+                              <li><a href="#"><i class="fa fa-unlock-alt"></i> Login</a></li>
+							    <hr>
+                              <li><a href="#"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+                            </ul>
+                </div>
+                </div>
+                  <!--/Dropdown primary-->
+              </li>
+              <!-- account dropdown -->
+          </ul>
+          <!-- right -->
+        </div>
+        <!-- /content -->
+    </div>
+  <!-- container -->
+  </nav>
+<!-- / nav main -->
+
+<!-- Navbar -->
+<nav class="navbar navbar-light p-0  border-bottom"
+     style="margin-top:3.8rem !important;box-shadow: none !important;background-color:white ;">
+<!-- main container -->
+    <div class="container">
+    <!-- Links -->
+    <ul class="navbar-nav nav-flex-icons">
+        <!-- Category -->
+        {% recursetree category %}
+      <!-- Features -->
+      <li class="nav-item dropdown mega-dropdown ">
+        <a class="nav-link dropdown-toggle ml-5 dark-text font-weight-bold" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">{{ node.title }}
+          <span class="sr-only">(current)</span>
+        </a>
+
+          <!-- drop down menu -->
+        <div class="dropdown-menu mega-menu v-2 z-depth-1 "
+          aria-labelledby="navbarDropdownMenuLink2">
+         <!-- dropdown container -->
+         <div class="container">
+         <!-- row -->
+          <div class="row" style="width:100%">
+              {% for child in node.get_children %}
+            <div class="col-md-2 col-xl-2 sub-menu p-0">
+              <a href="{% url 'home:catwise_product' id=child.id slug=child.slug %}" class="font-weight-bold black-text">
+                             {{ child.title }}</a>
+
+              <ul class="list-unstyled children">
+                  {% for desc in child.get_descendants %}
+                <li>
+                  <a class="p-0 text-dark" style="" href="{% url 'home:catwise_product' id=desc.id slug=desc.slug %}">
+                      {{ desc.title }}</a>
+                </li>
+                  {% endfor %}
+              </ul>
+            </div>
+                {% endfor %}
+          </div>
+         <!-- row -->
+   </div>
+             <!-- /dropdown container -->
+
+        </div>
+       <!-- /drop down menu -->
+
+      </li>
+         <!-- /Features -->
+        {% endrecursetree %}
+    </ul>
+    <!-- Links -->
+    </div>
+<!-- /main container -->
+</nav>
+<!-- Navbar -->
+
+
+
+
+
+
+
+
+

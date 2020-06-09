@@ -1,0 +1,80 @@
+{% extends 'hometemps/base.html' %}
+
+###############################################################
+<!-- important do no delete -->
+ <!-- Navbar 2 -->
+<nav class="navbar navbar-expand-lg navbar-light text-white  p-0"
+       style="margin-top: 3.8rem !important;box-shadow: none !important;background-color: orange;">
+    <div class="container">
+    <!-- Links -->
+    <ul class="navbar-nav nav-flex-icons mr-auto">
+
+      <!-- Features1 -->
+        {% recursetree category %}
+      <li class="nav-item mega-dropdown ">
+        <a class="nav-link dropdown-toggle mr-2" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="true">{{ node.title }}
+          <span class="sr-only">(current)</span>
+        </a>
+
+        <div class="dropdown-menu mega-menu v-2 z-depth-1"
+          aria-labelledby="navbarDropdownMenuLink2">
+          <div class="row">
+              {% for child in node.get_children %}
+            <div class="col-md-6 col-xl-3 sub-menu mr-auto">
+
+                <ul class="list-unstyled">
+                    <li>
+                       <strong> {{ child.title }} </strong>
+                    </li>
+                </ul>
+
+
+{% for desc in child.get_descendants %}
+              <ul class="list-unstyled">
+                <li>
+                    <a href="{% url 'home:index' %}">
+                {{ desc.title }}
+                        </a>
+                </li>
+
+              </ul>
+    {% endfor %}
+ </div>
+
+  {% endfor %}
+
+
+          </div>
+
+        </div>
+
+      </li>
+        <!-- /Features1 -->
+{% endrecursetree %}
+    </ul>
+    <!-- Links -->
+        </div>
+</nav>
+<!-- end nav 2 -->
+<!-- important do no delete -->
+################################################################
+
+
+{% load mptt_tags %}
+
+{% block category %}
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

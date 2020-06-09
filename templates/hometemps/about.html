@@ -1,0 +1,31 @@
+{% extends 'hometemps/base.html' %}
+
+{% block about %}
+
+<nav >
+<div class="container">
+    <ol class="breadcrumb" style="background-color: white">
+        <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'home:about' %}">About Us</a></li>
+    </ol>
+</div>
+</nav>
+
+
+    <section>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+
+        {{ setting.aboutus |safe }}
+        </div>
+    </div>
+
+</div>
+
+    </section>
+
+
+{% endblock about %}

@@ -1,0 +1,68 @@
+{% load mptt_tags %}
+<ul>
+    {% recursetree genres %}
+        <li>
+            {{ node.name }}
+            {% if not node.is_leaf_node %}
+                <ul class="children">
+                    {{ children }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endrecursetree %}
+</ul>
+
+
+ <!-- Navbar 2 -->
+<nav class="navbar navbar-light p-0 border-bottom"
+       style="margin-top: 3.8rem !important;box-shadow: none !important;background-color:white ;">
+<!-- main container -->
+    <div class="container">
+    <!-- content nav-flex-icons-->
+    <ul class="navbar-nav nav-flex-icons">
+      <!-- Category -->
+        {% recursetree category %}
+      <li class="nav-item mega-dropdown ">
+        <a class="nav-link dropdown-toggle ml-5 dark-text font-weight-bold" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="true">
+            {{ node.title }}
+          <span class="sr-only">(current)</span>
+        </a>
+      <!-- drop down menu -->
+        <div class="dropdown-menu mega-menu container-fluid v-2 z-depth-1"
+          aria-labelledby="navbarDropdownMenuLink2">
+        <!-- dropdown container -->
+         <div class="container">
+          <div class="row">
+              {% for child in node.get_children %}
+                 <div class="col-md-3 col-xl-2 sub-menu mb-4">
+                   <a href="{% url 'home:catwise_product' id=child.id slug=child.slug%} " class="sub-title font-weight-bold black-text">
+                             {{ child.title }}</a>
+                    <hr class="mt-0">
+                                <ul class="list-unstyled children">
+                                    {% for desc in child.get_descendants %}
+                                    <li>
+                                        <a class="menu-item p-0" style="font-family:sans-serif;" href="">{{ desc.title }}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+
+                         </div>
+              {% endfor %}
+          </div>
+         </div>
+        <!-- /dropdown container -->
+        </div>
+      <!-- /drop down menu -->
+      </li>
+        <!-- /Category -->
+
+{% endrecursetree %}
+
+    </ul>
+    <!-- /Content -->
+        </div>
+<!-- main container -->
+</nav>
+<!-- end nav 2 -->

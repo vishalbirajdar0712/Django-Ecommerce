@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block head_title %} {{ setting.title }}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+
+<style>
+    input[type=search]{width:430px !important;}
+</style>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}">
+    <link type="text/css" href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/mdb.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet">
+     <link type="text/css" href="{% static 'css/style1.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/bootstrap-grid.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/bootstrap-reboot.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/addons-pro/cards-extended.min.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'scss/pro/_ecommerce.scss' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/bootstrap-reboot.css' %}" rel="stylesheet">
+
+
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height:60vh;
+        margin-bottom: 10px;
+    }
+
+    .carousel-inner .carousel-item img{
+        height: 60vh;
+    }
+
+    .container {
+    max-width: 1300px;
+  }
+
+@media (min-width: 1200px) {
+
+  .container {
+    max-width: 1300px;
+  }
+}
+
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 30vh;
+      }
+        .carousel-inner .carousel-item img{
+        height: 30vh;
+    }
+
+    }
+
+    @media (min-width: 800px) and (max-width: 1350px) {
+
+        html,
+        body,
+        header,
+        .carousel {
+            height: 60vh;
+        }
+        .carousel-inner .carousel-item img{
+        height: 60vh;
+    }
+
+
+    }
+  </style>
+
+
+</head>
+
+
+{% include 'hometemps/navbar.html' %}
+<body>
+
+    {% block  content %}{% endblock %}
+    {% block  content1 %}{% endblock %}
+    {% block  content2 %}{% endblock %}
+    {% block  product_list %}{% endblock %}
+    {% block  content3 %}{% endblock %}
+    {% block catprod %} {% endblock %}
+    {% block searchprod %} {% endblock %}
+    {% block product %} {% endblock %}
+    {% block about %} {% endblock about %}
+
+  {% include 'hometemps/footer.html' %}
+  {% include 'hometemps/scripts.html' %}
+
+</body>

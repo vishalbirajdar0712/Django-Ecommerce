@@ -1,0 +1,198 @@
+{% extends 'hometemps/base.html' %}
+
+{% block catprod %}
+
+<div class="container">
+    <div class="row pt-4">
+
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+
+                <div class="">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12 mb-5">
+                            <!-- Panel -->
+                            <h3 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h3>
+                                <div class="divider"></div>
+
+                                <p class="blue-text"><a>Default</a></p>
+                                <p class="dark-grey-text"><a>Popularity</a></p>
+                                <p class="dark-grey-text"><a>Average rating</a></p>
+                                <p class="dark-grey-text"><a>Price: low to high</a></p>
+                                <p class="dark-grey-text"><a>Price: high to low</a></p>
+                        </div>
+
+                        <!-- Filter by category-->
+                        <div class="col-md-6 col-lg-12 mb-5">
+                            <h5 class="font-weight-bold dark-grey-text"><strong>Category</strong></h3>
+                                <div class="divider"></div>
+
+                                <!--Radio group-->
+                                <div class="form-group ">
+                                    <input class="form-check-input" name="group100" type="radio" id="radio100">
+                                    <label for="radio100" class="form-check-label dark-grey-text">All</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-check-input" name="group100" type="radio" id="radio101" checked>
+                                    <label for="radio101" class="form-check-label dark-grey-text">Laptop</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-check-input" name="group100" type="radio" id="radio102">
+                                    <label for="radio102" class="form-check-label dark-grey-text">Smartphone</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-check-input" name="group100" type="radio" id="radio103">
+                                    <label for="radio103" class="form-check-label dark-grey-text">Tablet</label>
+                                </div>
+
+                                <div class="form-group">
+                                    <input class="form-check-input" name="group100" type="radio" id="radio104">
+                                    <label for="radio104" class="form-check-label dark-grey-text">Headphones</label>
+                                </div>
+                                <!--Radio group-->
+                        </div>
+                        <!-- /Filter by category-->
+                    </div>
+                    <!-- /Grid row -->
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                        <!-- Filter by price  -->
+                        <div class="col-md-6 col-lg-12 mb-5">
+                            <h5 class="font-weight-bold dark-grey-text"><strong>Price</strong></h3>
+                                <div class="divider"></div>
+
+                                <form class="range-field mt-3">
+                                    <input id="calculatorSlider" class="no-border" type="range" value="0" min="0" max="30" />
+                                </form>
+
+                                <!-- Grid row -->
+                                <div class="row justify-content-center">
+
+                                    <!-- Grid column -->
+                                    <div class="col-md-6 text-left">
+                                        <p class="dark-grey-text"><strong id="resellerEarnings">0$</strong></p>
+                                    </div>
+                                    <!-- Grid column -->
+
+                                    <!-- Grid column -->
+                                    <div class="col-md-6 text-right">
+                                        <p class="dark-grey-text"><strong id="clientPrice">319$</strong></p>
+                                    </div>
+                                    <!-- Grid column -->
+                                </div>
+                                <!-- Grid row -->
+
+                        </div>
+                        <!-- /Filter by price -->
+
+                        <!-- Filter by rating -->
+                        <div class="col-md-6 col-lg-12 mb-5">
+                            <h5 class="font-weight-bold dark-grey-text"><strong>Rating</strong></h3>
+                                <div class="divider"></div>
+                                <div class="row ml-1">
+                                    <!-- Rating -->
+                                    <ul class="rating mb-0 list-inline">
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li>
+                                            <p class="ml-3 dark-grey-text"><a>4 and more</a></p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="row ml-1">
+                                    <!-- Rating -->
+                                    <ul class="rating mb-0">
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star grey-text"></i></li>
+                                        <li>
+                                            <p class="ml-3 dark-grey-text"><a>3 - 3,99</a></p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="row ml-1">
+                                    <!-- Rating -->
+                                    <ul class="rating">
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star blue-text"></i></li>
+                                        <li><i class="fas fa-star grey-text"></i></li>
+                                        <li><i class="fas fa-star grey-text"></i></li>
+                                        <li>
+                                            <p class="ml-3 dark-grey-text"><a>3.00 and less</a></p>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                        </div>
+                        <!-- Filter by rating -->
+                    </div>
+                    <!-- /Grid row -->
+                </div>
+
+            </div>
+            <!-- /.Sidebar -->
+
+        <!-- Content -->
+            <div class="col-lg-9">
+
+<div class="table-responsive text-nowrap">
+<h2 >Product List</h2>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for catprod in products %}
+        c.co
+        <tr>
+        <td><a href="{% url 'products:product' id=catprod.id slug=catprod.slug %}">
+                 <img src="{{ catprod.image.url }}" class="img-fluid" alt="">
+            </a>
+        </td>
+        <td>{{ catprod.detail |safe }}</td>
+        <td>{{ catprod.price }}</td>
+        </tr>
+    {% endfor %}
+
+
+    {% for brandprod in brand_product %}
+        <tr>
+        <td><a href="{% url 'products:product' id=brandprod.id slug=brandprod.slug %}">
+                 <img src="{{ brandprod.image.url }}" class="img-fluid" alt="">
+            </a>
+        </td>
+        <td>{{ brandprod.detail }}</td>
+        <td>{{ brandprod.price }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+
+
+</div>
+            </div>
+            <!-- /.Content -->
+    </div>
+</div>
+{% endblock %}

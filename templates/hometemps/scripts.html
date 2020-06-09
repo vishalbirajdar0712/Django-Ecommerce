@@ -1,0 +1,56 @@
+{% load static %}
+
+<script type="text/javascript" src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static '/js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static '/js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static '/js/mdb.min.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/mdb.lite.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/sticky.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/smooth-scroll.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/sidenav.js' %}"></script>
+
+<script type="text/javascript" src="{% static '/js/preloading.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/cards.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/character-counter.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/chips.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/collapsible.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/dropdown.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/dropdown-searchable.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/file-input.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/material-select-view-renderer.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/material-select-view.js' %}"></script>
+<script type="text/javascript" src="{% static '/js/material-select.js' %}"></script>
+
+<script type="text/javascript" src="{% static '/js/addons/rating.js' %}"></script>
+
+
+
+<!-- Initializations -->
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+   // Tooltips Initialization
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  for (var i=0;i<4;i++) {
+    next=next.next();
+    if (!next.length) {
+      next=$(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+  }
+});
+</script>

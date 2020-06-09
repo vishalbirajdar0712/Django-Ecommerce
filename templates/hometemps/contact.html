@@ -1,0 +1,58 @@
+{% extends 'hometemps/base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+{% block head_title %} Contact Us-{{ setting.title }} {% endblock %}
+
+{% block about %}
+
+<nav class="nav">
+<div class="container">
+    <ol class="breadcrumb" style="background-color: white">
+        <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'home:contact' %}">Contact Us</a></li>
+    </ol>
+</div>
+</nav>
+
+    <section>
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-4">
+
+                    <div>
+                        <h3>Contact Form</h3>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                            <hr style="background-color: red;">
+                        <form  method="POST" >
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <button type="submit" class="btn btn-primary" value="Send Message">
+                                Send Message
+                            </button>
+                        </form>
+
+                </div>
+                <div class="col-8">
+                    <h3>Contact Details</h3>
+                    <hr style="background-color: red">
+                {{ setting.contactus |safe }}
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+{% endblock about %}
